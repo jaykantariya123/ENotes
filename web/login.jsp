@@ -34,16 +34,16 @@
                             <h4>Login Page</h4>
                         </div>
 
-                        
-                        
+
+
                         <%
-                           String invalidMsg= (String)session.getAttribute("login-failed");
-                           if(invalidMsg!=null)
-                           {%>
-                               <div class="alert alert-danger" role="alert">
-                                   <%=invalidMsg%>
+                            String invalidMsg = (String) session.getAttribute("login-failed");
+                            if (invalidMsg != null) {%>
+                        <div class="alert alert-danger" role="alert">
+                            <%=invalidMsg%>
                         </div>
-                                   <% session.removeAttribute("login-failed");    }
+                        <% session.removeAttribute("login-failed");
+                            }
                         %>
                         <div class="card-body">
                             <form action="loginServlet" method="post">
