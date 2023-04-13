@@ -47,9 +47,9 @@ public class UserDAO {
         return f;
     }
     
-    public boolean loginUser(UserDetails ud)
+    public UserDetails loginUser(UserDetails ud)
     {
-        boolean f=false;
+       UserDetails user=null;
         try{
             String query="select *from  user1 where  email=?  and password=?";
             
@@ -60,13 +60,17 @@ public class UserDAO {
             ResultSet rs=ps.executeQuery();
             if(rs.next())
             {
-                f=true;
+                user=new UserDetails();
+                user.setName(rs.getString("name"));
+                user.setEmail(rs.getString("email"));
+                user.setPassword("password");
+                
             }
         }
         catch(Exception e)
         {
             e.printStackTrace();
         }
-        return f;
+        return user;
     }
 }

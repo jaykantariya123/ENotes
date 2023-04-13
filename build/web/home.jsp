@@ -9,9 +9,21 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title> Insert title here</title>
+        <link rel="stylesheet" href="css/style.css">
+        <style type="text/css">
+            .back-img{
+                background: url("img/download.jpg");
+                width: 100%;
+                height:95vh;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+        </style>
+        <%@include file="all_component/allcss.jsp" %>
     </head>
     <body>
+        <%@include file="all_component/navbar.jsp" %>
         <h1>home </h1>
     </body>
 </html>
