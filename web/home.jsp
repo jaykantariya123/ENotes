@@ -28,8 +28,13 @@
             
             <div class="card py-5 mb-2">
                 <div class="card-body text-center">
-                    <img alt="" src="img/d.jpg" class="img-fluid mx-auto" style="max-width: 380px;">
+                    <img alt="" src="img/d.jpg" class="img-fluid mx-auto" style="max-width: 400px;">
+                    <br>
+                    <br>
+                    <br>
                     <h1>START TAKING YOUR NOTES</h1>
+                    <br>
+                    <br>
                     <a href="addNotes.jsp" class="btn btn-outline-primary">Start here</a>
                 </div>
             </div>
