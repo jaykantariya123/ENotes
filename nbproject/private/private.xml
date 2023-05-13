@@ -3,14 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/AJT_Neatbeans/ENotes/web/home.jsp</file>
-            <file>file:/E:/AJT_Neatbeans/ENotes/web/index.jsp</file>
+            <file>file:/E:/AJT_Neatbeans/ENotes/src/java/com/User/Post.java</file>
             <file>file:/E:/AJT_Neatbeans/ENotes/web/addNotes.jsp</file>
+            <file>file:/E:/AJT_Neatbeans/ENotes/src/java/com/DAO/PostDAO.java</file>
             <file>file:/E:/AJT_Neatbeans/ENotes/src/java/com/Servlet/loginServlet.java</file>
-            <file>file:/E:/AJT_Neatbeans/ENotes/web/all_component/navbar.jsp</file>
-            <file>file:/E:/AJT_Neatbeans/ENotes/src/java/com/Servlet/UserServlet.java</file>
+            <file>file:/E:/AJT_Neatbeans/ENotes/src/java/com/Servlet/AddNotesServlet.java</file>
             <file>file:/E:/AJT_Neatbeans/ENotes/src/java/com/DAO/UserDAO.java</file>
-            <file>file:/E:/AJT_Neatbeans/ENotes/web/login.jsp</file>
         </group>
     </open-files>
 </project-private>

@@ -17,19 +17,25 @@
     <body>
         <%@include file="all_component/navbar.jsp" %>
         <div class="container-fluid">
-            
+
             <h1 class="text-center mt-3">Add Your Notes</h1>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <form>
+                        <form action="AddNotesServlet" method="post">
                             <div class="form-group">
+
+
+                                <%                                    UserDetails us = (UserDetails) session.getAttribute("userD");
+                                %>
+
+                                <input type="hidden" value="<%=us.getEmail()%>" name="email">
                                 <label for="exampleInputEmail1">Enter Title</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="title" required="required">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Enter Content</label>
-                                <textarea rows="10" cols="" class="form-control"></textarea>
+                                <textarea rows="10" cols="" class="form-control" name="content" required="required"></textarea>
                             </div>
 
 
@@ -37,12 +43,12 @@
                                 <button type="submit" class="btn btn-primary">Add Notes</button>
 
                             </div>
-                        </form>
+                        </form> 
                     </div>
                 </div>
             </div>
         </div>
-            
-            <%@include  file="all_component/footer.jsp" %>
+
+        <%@include  file="all_component/footer.jsp" %>
     </body>
 </html>
