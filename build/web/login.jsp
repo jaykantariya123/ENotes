@@ -36,15 +36,33 @@
 
 
 
-                        <%
-                            String invalidMsg = (String) session.getAttribute("login-failed");
+                        <%                            String invalidMsg = (String) session.getAttribute("login-failed");
                             if (invalidMsg != null) {%>
-                        <div class="alert alert-danger" role="alert">
-                            <%=invalidMsg%>
-                        </div>
-                        <% session.removeAttribute("login-failed");
+
+                        <%
                             }
                         %>
+                        <%
+                            String withoutLogin = (String) session.getAttribute("Login-error");
+                            if ((withoutLogin != null)) {%>
+                        <div class="alert alert-danger" role="alert">
+                            <%=withoutLogin%>
+                        </div>
+                        <%session.removeAttribute("Login-error");
+                            }
+                        %>
+                        
+                        
+                        
+                        <%
+                            String lgMsg=(String)session.getAttribute("logoutMsg");
+                            if(lgMsg!=null)
+                            {%>
+                                <div class="alert alert-success" role="alert">
+                            <%=lgMsg%>
+                        </div>
+                            <%session.removeAttribute("logoutMsg");}
+                            %>
                         <div class="card-body">
                             <form action="loginServlet" method="post">
 

@@ -5,6 +5,17 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+
+<%
+    UserDetails user1 = (UserDetails) session.getAttribute("userD");
+    if (user1 == null) {
+        response.sendRedirect("login.jsp");
+        session.setAttribute("Login-error", "Please login...");
+    }
+%>
+
+
 <!DOCTYPE html>
 <html>
     <head>

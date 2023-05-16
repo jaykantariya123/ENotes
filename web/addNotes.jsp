@@ -5,6 +5,16 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<%
+    UserDetails user1 = (UserDetails) session.getAttribute("userD");
+    if (user1 == null) {
+        response.sendRedirect("login.jsp");
+        session.setAttribute("Login-error", "Please login...");
+    }
+%>
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -26,10 +36,14 @@
                             <div class="form-group">
 
 
-                                <%                                    UserDetails us = (UserDetails) session.getAttribute("userD");
+                                <%                                    
+                                    UserDetails us = (UserDetails) session.getAttribute("userD");
+                                    if (us != null) {%>
+                                <input type="hidden" value="<%=us.getEmail()%>" name="email">
+                                <%}
                                 %>
 
-                                <input type="hidden" value="<%=us.getEmail()%>" name="email">
+
                                 <label for="exampleInputEmail1">Enter Title</label>
                                 <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="title" required="required">
                             </div>
