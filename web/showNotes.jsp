@@ -29,6 +29,18 @@
     </head>
     <body>
         <%@include file="all_component/navbar.jsp" %>
+        
+        <%
+            String updatemsg=(String)session.getAttribute("updateMsg");
+            
+            if(updatemsg!=null)
+            {%>
+               
+            <div class="alert alert-success" role="alert">
+                            <%=updatemsg%>
+                        </div>
+                            <% session.removeAttribute("updatemsg");}
+        %>
 
         <div class="container">
 
@@ -62,7 +74,7 @@
 
                             <div class="container text-center mb-2">
                                 <a href="DeleteServlet?title=" class="btn btn-danger">Delete</a>
-                                <a href="edit.jsp?title=" class="btn btn-primary">Edit</a>
+                                <a href="edit.jsp?title=<%= po.getTitle() %>" class="btn btn-primary">Edit</a>
 
 
                             </div>

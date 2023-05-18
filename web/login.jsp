@@ -38,8 +38,10 @@
 
                         <%                            String invalidMsg = (String) session.getAttribute("login-failed");
                             if (invalidMsg != null) {%>
+                            <div class="alert alert-danger" role="alert"><%=invalidMsg%></div>
 
                         <%
+                            session.removeAttribute("login-failed");
                             }
                         %>
                         <%

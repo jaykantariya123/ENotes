@@ -74,8 +74,57 @@ public class PostDAO {
          
          catch(Exception e)
          {
-             
+             e.printStackTrace();
          }
          return list;
+    }
+    
+    public Post getDatabyTitle(String title){
+        Post p=null;
+        try{
+            String q="select * from ENOTE.NOTES1 where title=?";
+            
+            PreparedStatement ps=conn.prepareStatement(q);
+            ps.setString(1, title);
+            
+            ResultSet rs=ps.executeQuery();
+            
+            if(rs.next())
+            {
+                p=new Post();
+                p.setTitle(rs.getString(1));
+                p.setContent(rs.getString(2));
+            }
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        
+        return p;
+        
+    }
+    
+    public boolean PostUpdate (String ti,String co){
+        boolean f=false;
+        
+        try{
+            String q="update ENOTE.NOTES1 set content=? where title=?";
+            PreparedStatement ps=conn.prepareStatement(q);
+            ps.setString(1, co);
+            ps.setString(2, ti);
+            
+            int i= ps.executeUpdate();
+            
+            if(i==1)
+            {
+                return true;
+                
+            }
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        return f;
     }
 }
