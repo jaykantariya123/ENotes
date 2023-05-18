@@ -127,4 +127,29 @@ public class PostDAO {
         }
         return f;
     }
+    
+    
+    public boolean DeleteNotes(String s)
+    {
+        boolean f=false;
+        
+        try{
+            
+            
+            String q="delete from ENOTE.NOTES1 where title=?";
+            PreparedStatement ps=conn.prepareStatement(q);
+            
+            ps.setString(1, s);
+            
+            int x=ps.executeUpdate();
+            
+            if(x==1)
+            {
+                f=true;
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return f;
+    }
 }

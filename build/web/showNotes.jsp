@@ -31,15 +31,27 @@
         <%@include file="all_component/navbar.jsp" %>
         
         <%
-            String updatemsg=(String)session.getAttribute("updateMsg");
+            String updateMsg=(String)session.getAttribute("updateMsg");
             
-            if(updatemsg!=null)
+            if(updateMsg!=null)
             {%>
                
             <div class="alert alert-success" role="alert">
-                            <%=updatemsg%>
+                            <%=updateMsg%>
                         </div>
-                            <% session.removeAttribute("updatemsg");}
+                            <% session.removeAttribute("updateMsg");}
+        %>
+        
+        <%
+            String wrongMsg=(String)session.getAttribute("wrongMsg");
+            
+            if(wrongMsg!=null)
+            {%>
+               
+            <div class="alert alert-danger" role="alert">
+                            <%=wrongMsg%>
+                        </div>
+                            <% session.removeAttribute("wrongMsg");}
         %>
 
         <div class="container">
@@ -73,7 +85,8 @@
                             </p>
 
                             <div class="container text-center mb-2">
-                                <a href="DeleteServlet?title=" class="btn btn-danger">Delete</a>
+                                <a href="deleteServlet?title=<%= po.getTitle() %>" class="btn btn-danger">Delete</a>
+                                
                                 <a href="edit.jsp?title=<%= po.getTitle() %>" class="btn btn-primary">Edit</a>
 
 
