@@ -4,6 +4,10 @@
     Author     : hp
 --%>
 
+<%@page import="com.User.Post"%>
+<%@page import="java.util.List"%>
+<%@page import="com.Db.DBConnect"%>
+<%@page import="com.DAO.PostDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%
@@ -19,43 +23,57 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Show Notes</title>
+        <link rel="stylesheet" href="css/style.css">
+
         <%@include file="all_component/allcss.jsp" %>
     </head>
     <body>
         <%@include file="all_component/navbar.jsp" %>
-        
+
         <div class="container">
 
-            <h2 class="text-center ">All Notes:</h2>
-            
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card mt-3">
-                            
-                            <img alt="" src="img/d.jpg" class="card-img-top mt-2 mx-auto" style="max-width: 100px;">
-                            
-                            <div  class="card-body p-4">
-                                <h5 class="card-title">jmkkm</h5>
-                                
-                                <p>njkn bkb</p>
-                                
-                                <p>
-                                    <b class="text-success" > Published By:</b></br>
-                                    <b class="text-primary"></b>
-                                    
-                                    
-                                </p>
-                                
-                                <div class="container text-center mb-2">
-                                    <a href="DeleteServlet?title=" class="btn btn-danger">Delete</a>
-                                    <a href="edit.jsp?title=" class="btn btn-primary">Edit</a>
-                                    
-                                    
-                                </div>
+            <h2 class="text-center">All Notes:</h2>
+
+            <div class="row">
+                <div class="col-md-12">
+
+                    <%                            if (user1 != null) {
+                            PostDAO ob = new PostDAO(DBConnect.getConn());
+                            List<Post> post = ob.getData(user1.getEmail());
+
+                           for (Post po : post) {%>               
+                    <div class="card mt-3">
+
+                        <img alt="" src="img/d.jpg" class="card-img-top mt-2 mx-auto" style="max-width: 100px;">
+
+                        <div  class="card-body p-4">
+
+
+                            <h5 class="card-title "><%=po.getTitle()%></h5>
+
+                            <p><%= po.getContent() %></p>
+
+                            <p>
+                                <b class="text-success" > Published By:<%= user1.getName() %></b></br>
+                                <b class="text-primary"></b>
+
+
+                            </p>
+
+                            <div class="container text-center mb-2">
+                                <a href="DeleteServlet?title=" class="btn btn-danger">Delete</a>
+                                <a href="edit.jsp?title=" class="btn btn-primary">Edit</a>
+
+
                             </div>
-                            
-                          
+                        </div>
                     </div>
+
+                    <%}
+                        }
+                    %>
+
+
                 </div>
             </div>
         </div>

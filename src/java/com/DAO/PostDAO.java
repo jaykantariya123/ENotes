@@ -5,10 +5,13 @@
  */
 package com.DAO;
 
-import com.User.Post;
+import com.User.Post; 
 import com.User.UserDetails;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -46,5 +49,33 @@ public class PostDAO {
             e.printStackTrace();
         }
         return f;
+    }
+    
+    public List<Post> getData(String email)
+    {
+         List<Post> list=new ArrayList<Post>();
+         Post post =null;
+         try{
+             String q="select * from ENOTE.NOTES1 where email=?";
+             
+             PreparedStatement ps=conn.prepareStatement(q);
+             ps.setString(1, email);
+             
+             ResultSet rs= ps.executeQuery();
+             while(rs.next())
+             {
+                 post= new Post();
+                 post.setTitle(rs.getString(1));
+                 post.setContent(rs.getString(2));
+                 list.add(post);
+                 
+             }
+         }
+         
+         catch(Exception e)
+         {
+             
+         }
+         return list;
     }
 }

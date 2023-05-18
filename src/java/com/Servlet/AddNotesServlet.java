@@ -37,6 +37,7 @@ public class AddNotesServlet extends HttpServlet {
         if(f)
         {
             System.out.println("data insert successfully.");
+            response.sendRedirect("showNotes.jsp");
         }
         else
         {

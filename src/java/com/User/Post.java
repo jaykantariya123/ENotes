@@ -12,7 +12,7 @@ import java.sql.Date;
  * @author hp
  */
 public class Post {
-    private  String title;
+    private String title;
     private String content;
     private Date pdate;
     private UserDetails user;
@@ -58,5 +58,9 @@ public class Post {
     public void setUser(UserDetails user) {
         this.user = user;
     }
-    
+
+//    public void setEmail(String string) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+//    
 }
